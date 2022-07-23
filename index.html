@@ -1,0 +1,332 @@
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/simple-navmesh-constraint.js"></script>
+    <script src="./js/shadow.js"></script>
+    <script src="./js/href-model.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style.css" > 
+   
+
+    <title>Welcome to Smartverse</title>
+  </head>
+
+  <body>
+    <a href="https://pamjaya.com" class="logo-display"> <img src="/assets/logo.jpg" class="img-fluid" style="max-width: 100px;"></a>
+    
+    <div id="splash">
+      <h2> Smartwaterverse</h2>
+      <h3> 100th PAM JAYA </h3>
+      <div class="loading"></div>
+      <div class="row">
+      <div class="col-xs-12 col-sm-5 col-md-3">
+      <div class="start-button" style="text-align: center; margin-bottom: -0.1vh;">Start To Enter Room</div></div>
+      </div>
+    </div>
+
+    <!-- <div id="overlay" onclick="off()">
+      <div id="coomer">
+        <svg fill="white" width="18" height="18" viewBox="0 0 26 26"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5 15.538l-3.592-3.548 3.546-3.587-1.416-1.403-3.545 3.589-3.588-3.543-1.405 1.405 3.593 3.552-3.547 3.592 1.405 1.405 3.555-3.596 3.591 3.55 1.403-1.416z"/></svg> </div>
+      
+        
+        <h5 id="text" class="text-center">
+        Instruction move using WASD and you can click model for information at this museum
+        
+        Better Performance and Experience using oculus quest
+        </h5>
+        
+        </div>
+      </div>
+    </div> -->
+  <!-- aframe -->
+    <a-scene 
+    renderer="antialias: true;
+                   colorManagement: true;
+                   sortObjects: true;
+                   physicallyCorrectLights: true;
+                   maxCanvasWidth: 1920;
+                   maxCanvasHeight: 1920;"
+    shadow="type: pcfsoft"
+		reflection="directionalLight:#dirlight;"
+    
+    gltf-model="dracoDecoderPath: https://cdn.jsdelivr.net/npm/three@0.129.0/examples/js/libs/draco/gltf/;"
+    >
+    
+    <a-entity id="rig" 
+    position="0 0.7 4"
+   
+    movement-controls="speed:0.09;"
+    origin-on-ar-start
+    >
+   
+        <a-entity id="camera" 
+        camera 
+        look-controls="pointerLockEnabled: false"
+        simple-navmesh-constraint="navmesh:.navmesh;fall:0.4;height:0;"
+        cursor="rayOrigin: mouse">
+        </a-entity>
+        
+    </a-entity>
+    <!-- asset management system -->
+     <a-assets>
+
+        <a-assets-item id="base_building" src="/assets/base_building.glb" ></a-assets-item>
+        <a-assets-item id="lantai" src="/assets/lantai/lantai.glb" ></a-assets-item>
+        <a-assets-item id="plant" src="/assets/plant.glb"></a-assets-item>
+        
+        <!-- navmesh -->
+        <a-assets-item id="navmesh" src="/assets/navmesh.glb" ></a-assets-item>
+
+        <!-- model animation -->
+        <a-assets-item id="filterasi" src="/assets/filter.glb" ></a-assets-item>
+        <a-assets-item id="logo-center" src="/assets/logo_pamjaya.glb" ></a-assets-item>
+          <!-- lab -->
+          <a-assets-item id="lab" src="/assets/laboratory.glb"></a-assets-item>
+          <!-- peta -->
+          <a-assets-item id="peta-a" src="/assets/peta-a.glb"></a-assets-item>
+          <a-assets-item id="peta-b" src="/assets/peta-b.glb"></a-assets-item>
+
+        <!-- history room -->
+        <a-assets-item id="1843" src="/assets/history_room/1843.glb"></a-assets-item>
+        <a-assets-item id="1918" src="/assets/history_room/1918.glb"></a-assets-item>
+        <a-assets-item id="1922" src="/assets/history_room/1922.glb"></a-assets-item>
+        <a-assets-item id="1945" src="/assets/history_room/1945.glb"></a-assets-item>
+        <a-assets-item id="1977" src="/assets/history_room/1977.glb"></a-assets-item>
+        <a-assets-item id="1997" src="/assets/history_room/1997.glb"></a-assets-item>
+        <a-assets-item id="1998" src="/assets/history_room/1998.glb"></a-assets-item>
+        <a-assets-item id="2001" src="/assets/history_room/2001.glb"></a-assets-item>
+        <a-assets-item id="2004" src="/assets/history_room/2004.glb"></a-assets-item>
+        <a-assets-item id="2008" src="/assets/history_room/2008.glb"></a-assets-item>
+     </a-assets>
+
+
+
+     <a-entity gltf-model="#navmesh" class="navmesh" visible="false" position="0 0.7 0"></a-entity>
+     <a-entity gltf-model="#base_building"
+     id="building"     
+     lightmap="intensity: 5; filter:Window,Ceiling,floor;"
+     depthwrite="true"
+     window-replace="Glass"
+     no-tonemapping="Light"
+     shadow="cast:false;receive:true;"
+     >
+     </a-entity>
+     <a-entity gltf-model="#lantai" id="lantai-base"></a-entity>
+     
+     <a-light id="dirlight" light="type: ambient" intensity="1" ></a-light>
+
+     <!-- static model -->
+     <a-entity id="laboratorium" gltf-model="#lab" animation-mixer="clip:*;" href="https://www.pamjaya.co.id/lab" target="_blank"></a-entity>
+     <a-entity id="plant-static" gltf-model="#plant"></a-entity>
+     <a-entity id="map-a" gltf-model="#peta-a" ></a-entity>
+     <a-entity id="map-b" gltf-model="#peta-b" ></a-entity>
+
+     <!-- model + animation -->
+     
+     <a-entity gltf-model="#filterasi" id="filter-pipa" animation-mixer="clip: *;"></a-entity>
+     <a-entity id="logo-center" gltf-model="#logo-center" position="0 -1 0" animation-mixer="clip: logo_muter; "href="https://www.pamjaya.co.id/" target="_blank" ></a-entity>
+
+     <!-- history room model 3d -->
+     
+     <a-entity id="1" gltf-model="#1843" position="0 0 0" animation-mixer="clip: *" data-bs-toggle="modal" data-bs-target="#model1" ></a-entity>
+     <a-entity id="2" gltf-model="#1918" position="0 0 0" animation-mixer="clip: *" data-bs-toggle="modal" data-bs-target="#model2"></a-entity>
+     <a-entity id="3" gltf-model="#1922" position="0 0 0" animation-mixer="clip: *" data-bs-toggle="modal" data-bs-target="#model3"></a-entity>
+     <a-entity id="4" gltf-model="#1945" position="0 0 0" animation-mixer="clip: *" data-bs-toggle="modal" data-bs-target="#model4"></a-entity>
+     <a-entity id="5" gltf-model="#1977" position="0 0 0" animation-mixer="clip: *" data-bs-toggle="modal" data-bs-target="#model5"></a-entity>
+     <a-entity id="6" gltf-model="#1997" position="0 0 0" animation-mixer="clip: *" data-bs-toggle="modal" data-bs-target="#model6"></a-entity>
+     <a-entity id="7" gltf-model="#1998" position="0 0 0" animation-mixer="clip: *" data-bs-toggle="modal" data-bs-target="#model7"></a-entity>
+     <a-entity id="8" gltf-model="#2001" position="0 0 0" animation-mixer="clip: *" data-bs-toggle="modal" data-bs-target="#model8"></a-entity>
+     <a-entity id="9" gltf-model="#2004" position="0 0 0" animation-mixer="clip: *" data-bs-toggle="modal" data-bs-target="#model9"></a-entity>
+     <a-entity id="10" gltf-model="#2008" position="0 0 0" animation-mixer="clip: *" data-bs-toggle="modal" data-bs-target="#model10"></a-entity>
+     
+     <!-- end history room -->
+     
+
+
+    
+     <a-sky radius="200" theta-length="110" class="environment"></a-sky>
+    </a-scene>
+
+    <!-- pop up -->
+    <!-- model 1 -->
+    <div class="modal fade" id="model1" tabindex="-1" aria-labelledby="modal1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-center" id="modal1">1843</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+           <h4 class="text-wrap text-center">Untuk memenuhi kebutuhan air kota Jakarta (Batavia) oleh Pemerintah Hindia Belanda pengadaan air bersih berasal dari sumur bor/artesis</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- model 2 -->
+    <div class="modal fade" id="model2" tabindex="-1" aria-labelledby="modal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-center" id="modal1">1918 - 1920</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+           <h4 class="text-wrap text-center">
+            Ditemukan sumber mata air Ciburial di daerah Ciomas Bogor oleh Pemerintah Hindia Belanda dengan kapasitas 484 l/dt. Dan tahun berdirinya Gementeestaat-waterleidengen van Batavia
+           </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- model 3 -->
+    <div class="modal fade" id="model3" tabindex="-1" aria-labelledby="modal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-center" id="modal1">1922</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+           <h4 class="text-wrap text-center">
+            Pada tanggal 23 Desember untuk pertama kalinya air yang berasal dari Ciburial Bogor dialirkan ke kota Batavia (Jakarta), dan pada tanggal tersebut dijadikan sebagai hari jadi PAM JAYA
+           </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- model 4 -->
+        <div class="modal fade" id="model4" tabindex="-1" aria-labelledby="modal" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title text-center" id="modal1">1945 - 1963</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+               <h4 class="text-wrap text-center">
+                Pelayanan air minum dilaksanakan oleh Dinas Saluran Air Minum Kota Praja dibawah Kesatuan Pekerjaan Umum Kota Praja.
+               </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-- model 5 -->
+      <div class="modal fade" id="model5" tabindex="-1" aria-labelledby="modal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-center" id="modal1">1977</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+             <h4 class="text-wrap text-center px-2">
+              » Tanggal 30 April 1977 PAM JAYA disyahkan berdasarkan PERDA DKI Jakarta No. 3/1977
+              » Tanggal 2 November 1977 PAM JAYA dikukuhkan oleh SK Mendagri No. PEM/10/53/13350 diundangkan dalam Lembaran DKI Jakarta No. 74 tahun 1977
+             </h4>            
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- model 6 -->
+      <div class="modal fade" id="model6" tabindex="-1" aria-labelledby="modal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-center" id="modal1">1997</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+             <h4 class="text-wrap text-center">
+              6 Juni 1997, Penandatanganan Perjanjian Kerjasama PAM JAYA dengan 2 Mitra Swasta selama 25 tahun yaitu PT. Garuda Dipta Semesta yang saat ini menjadi PT. PAM LYONNAISE JAYA (PT. PALYJA) dan PT. Kekar Pola Airindo yang saat ini menjadi PT. THAMES PAM JAYA (PT. TPJ)
+             </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- model 7 -->
+      <div class="modal fade" id="model7" tabindex="-1" aria-labelledby="modal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-center" id="modal1">1998</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+             <h4 class="text-wrap text-center">
+              1 Februari 1998, Operasional secara penuh pelayanan air minum pada wilayah usaha dilaksanakan oleh 2 Mitra Swasta
+             </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- model 8 -->
+      <div class="modal fade" id="model8" tabindex="-1" aria-labelledby="modal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-center" id="modal1">2001</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+             <h4 class="text-wrap text-center">
+              Setelah melalui negosiasi Perjanjian Kerjasama direvisi dinyatakan kembali (Amended & Restated) dengan Perjanjian Kerjasama 22 Oktober 2001
+             </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- model 9 -->
+      <div class="modal fade" id="model9" tabindex="-1" aria-labelledby="modal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-center" id="modal1">2004 - 2005</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+             <h4 class="text-wrap text-center">
+              » 24 Desember 2004 Penandatangan kesepakatan Addendum Perjanjian Kerjasama 2001 untuk Wilayah Barat (PT. PALYJA)
+              » 7 Oktober 2005 Penandatangan kesepakatan Addendum Perjanjian Kerjasama 2001 untuk Wilayah Timur (PT. TPJ)
+             </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- model 10 -->
+      <div class="modal fade" id="model10" tabindex="-1" aria-labelledby="modal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-center" id="modal1">2008 - 2009</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+             <h4 class="text-wrap text-center">
+              20 Oktober 2008 Penandatanganan kesepakatan Addendum Perjanjian Kerjasama 2001 untuk Wilayah Barat (PT. PALYJA) 8 Januari 2009 penandatanganan kesepakatan Addendum Perjanjian Kerjasama 2001 untuk Wilayah Timur (PT. AETRA)
+             </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- script bootstrap 5 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- js -->
+    <!-- <script type="text/javascript">
+      function on() {
+        document.getElementById("overlay").style.display = "block";
+      }
+      
+      function off() {
+        document.getElementById("overlay").style.display = "none";
+      } 
+      </script> -->
+  </body>
+</html>
