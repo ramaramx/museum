@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const emitEvent = (eventName, listeners) => {
         listeners.forEach((listener) => {
             const el = document.querySelector(listener);
-            el.emit(eventName);
+            el.emit(eventName);      
         })
     };
 

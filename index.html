@@ -10,29 +10,27 @@
     <script src="./js/simple-navmesh-constraint.js"></script>
     <script src="./js/shadow.js"></script>
     <script src="./js/href-model.js"></script>
-
+    <link rel="stylesheet" href="/style.css" >
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="/style.css" > 
-   
-
+     
     <title>Welcome to Smartverse</title>
-  </head>
 
+  </head>
+  
   <body>
     <a href="https://pamjaya.com" class="logo-display"> <img src="/assets/logo.jpg" class="img-fluid" style="max-width: 100px;"></a>
     
     <div id="splash">
       <h2> Smartwaterverse</h2>
       <h3> 100th PAM JAYA </h3>
-      <div class="loading"></div>
-      <div class="row">
-      <div class="col-xs-12 col-sm-5 col-md-3">
+      <div class="loading">
       <div class="start-button" style="text-align: center; margin-bottom: -0.1vh;">Start To Enter Room</div></div>
-      </div>
     </div>
+      
+    
 
-    <!-- <div id="overlay" onclick="off()">
+    <div id="overlay" onclick="off()">
       <div id="coomer">
         <svg fill="white" width="18" height="18" viewBox="0 0 26 26"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5 15.538l-3.592-3.548 3.546-3.587-1.416-1.403-3.545 3.589-3.588-3.543-1.405 1.405 3.593 3.552-3.547 3.592 1.405 1.405 3.555-3.596 3.591 3.55 1.403-1.416z"/></svg> </div>
       
@@ -45,7 +43,7 @@
         
         </div>
       </div>
-    </div> -->
+    </div>
   <!-- aframe -->
     <a-scene 
     renderer="antialias: true;
@@ -78,33 +76,33 @@
     <!-- asset management system -->
      <a-assets>
 
-        <a-assets-item id="base_building" src="/assets/base_building.glb" ></a-assets-item>
-        <a-assets-item id="lantai" src="/assets/lantai/lantai.glb" ></a-assets-item>
-        <a-assets-item id="plant" src="/assets/plant.glb"></a-assets-item>
+        <a-assets-item id="base_building" src="./assets/base_building.glb" ></a-assets-item>
+        <a-assets-item id="lantai" src="./assets/lantai/lantai.glb" ></a-assets-item>
+        <a-assets-item id="plant" src="./assets/plant.glb"></a-assets-item>
         
         <!-- navmesh -->
-        <a-assets-item id="navmesh" src="/assets/navmesh.glb" ></a-assets-item>
+        <a-assets-item id="navmesh" src="./assets/navmesh.glb" ></a-assets-item>
 
         <!-- model animation -->
-        <a-assets-item id="filterasi" src="/assets/filter.glb" ></a-assets-item>
-        <a-assets-item id="logo-center" src="/assets/logo_pamjaya.glb" ></a-assets-item>
+        <a-assets-item id="filterasi" src="./assets/filter.glb" ></a-assets-item>
+        <a-assets-item id="logo-center" src="./assets/logo_pamjaya.glb" ></a-assets-item>
           <!-- lab -->
-          <a-assets-item id="lab" src="/assets/laboratory.glb"></a-assets-item>
+          <a-assets-item id="lab" src="./assets/laboratory.glb"></a-assets-item>
           <!-- peta -->
-          <a-assets-item id="peta-a" src="/assets/peta-a.glb"></a-assets-item>
-          <a-assets-item id="peta-b" src="/assets/peta-b.glb"></a-assets-item>
+          <a-assets-item id="peta-a" src="./assets/peta-a.glb"></a-assets-item>
+          <a-assets-item id="peta-b" src="./assets/peta-b.glb"></a-assets-item>
 
         <!-- history room -->
-        <a-assets-item id="1843" src="/assets/history_room/1843.glb"></a-assets-item>
-        <a-assets-item id="1918" src="/assets/history_room/1918.glb"></a-assets-item>
-        <a-assets-item id="1922" src="/assets/history_room/1922.glb"></a-assets-item>
-        <a-assets-item id="1945" src="/assets/history_room/1945.glb"></a-assets-item>
-        <a-assets-item id="1977" src="/assets/history_room/1977.glb"></a-assets-item>
-        <a-assets-item id="1997" src="/assets/history_room/1997.glb"></a-assets-item>
-        <a-assets-item id="1998" src="/assets/history_room/1998.glb"></a-assets-item>
-        <a-assets-item id="2001" src="/assets/history_room/2001.glb"></a-assets-item>
-        <a-assets-item id="2004" src="/assets/history_room/2004.glb"></a-assets-item>
-        <a-assets-item id="2008" src="/assets/history_room/2008.glb"></a-assets-item>
+        <a-assets-item id="1843" src="./assets/history_room/1843.glb"></a-assets-item>
+        <a-assets-item id="1918" src="./assets/history_room/1918.glb"></a-assets-item>
+        <a-assets-item id="1922" src="./assets/history_room/1922.glb"></a-assets-item>
+        <a-assets-item id="1945" src="./assets/history_room/1945.glb"></a-assets-item>
+        <a-assets-item id="1977" src="./assets/history_room/1977.glb"></a-assets-item>
+        <a-assets-item id="1997" src="./assets/history_room/1997.glb"></a-assets-item>
+        <a-assets-item id="1998" src="./assets/history_room/1998.glb"></a-assets-item>
+        <a-assets-item id="2001" src="./assets/history_room/2001.glb"></a-assets-item>
+        <a-assets-item id="2004" src="./assets/history_room/2004.glb"></a-assets-item>
+        <a-assets-item id="2008" src="./assets/history_room/2008.glb"></a-assets-item>
      </a-assets>
 
 
@@ -319,7 +317,7 @@
     <!-- script bootstrap 5 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <!-- js -->
-    <!-- <script type="text/javascript">
+    <script type="text/javascript">
       function on() {
         document.getElementById("overlay").style.display = "block";
       }
@@ -327,6 +325,6 @@
       function off() {
         document.getElementById("overlay").style.display = "none";
       } 
-      </script> -->
+      </script>
   </body>
 </html>
