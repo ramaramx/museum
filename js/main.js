@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const emitEvent = (eventName, listeners) => {
         listeners.forEach((listener) => {
             const el = document.querySelector(listener);
-            el.emit(eventName);      
+            el.emit(eventName);
         })
     };
 
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 loading.style.display = 'none';
                 splash.style.backgroundColor = 'rgba(34, 149, 214, 0.5)';
                 startButton.style.opacity = 1;
-            }, 1000);
+            }, 50);
     });
 
     startButton.addEventListener('click', function (e) {
