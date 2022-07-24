@@ -4,7 +4,9 @@ body {
     font-family: "helvetica";
     background-color: #232323;
   }
+ 
   
+
   /* Small Devices, Phones */ 
   @media only screen and (min-width : 375px) {
     h2 
@@ -129,7 +131,7 @@ body {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    transition: all 1s ease-out;
+    transition: all 5s ease-out;
     flex-wrap: nowrap;
     align-content: center;
   }
@@ -143,20 +145,12 @@ body {
     }
   }
   
-  #splash .loading {
-    width: 24px;
-    height: 24px;
-    left: 50%;
-    border-radius: 50%;
-    border: 0.25rem solid rgba(255, 255, 255, 0.2);
-    border-top-color: #fff;
-    animation: spin 1s infinite linear;
-  }
+ 
   
   #splash .start-button {
     padding: 25px 25px;
     border-radius: 15px;
-    opacity: 0;
+    opacity: 1;
     transition: opacity .5s ease;
     cursor: pointer;
     background-color: #004f87;
@@ -220,38 +214,7 @@ body {
     color: #f2f2f2;
   }
   
-  #anchor-scene-button {
-    display: none;
-    position: fixed;
-    
-    top: 20px;
-    right: 20px;
-    width: 55px;
-    height: 55px;
-    background-color: rgba(255, 255, 266, 0.8);
-    background-image: url('rotate-anchor.png');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 100%;
-    border-radius: 3px;
-    z-index: 1;
-  }
   
-  #rotate-scene-button {
-    display: none;
-    position: fixed;
-    top: 90px;
-    right: 20px;
-    width: 55px;
-    height: 55px;
-    background-color: rgba(255, 255, 266, 0.8);
-    background-image: url('rotate-y.png');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 60%;
-    border-radius: 3px;
-    z-index: 1;
-  }
   
   
   .modal-body {

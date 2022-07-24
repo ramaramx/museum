@@ -11,26 +11,18 @@ document.addEventListener('DOMContentLoaded', function() {
         })
     };
 
-    const activateSoundsForTouch = () => {
-    	const sounds = document.querySelectorAll('a-sound')
-        sounds.forEach((soundEl) => {
-            soundEl.components.sound.playSound();
-            soundEl.components.sound.stopSound();
-        })
-    };
-
     scene.addEventListener('loaded', function (e) {
         setTimeout(function () {
                 loading.style.display = 'none';
                 splash.style.backgroundColor = 'rgba(34, 149, 214, 0.5)';
                 startButton.style.opacity = 1;
-            }, 50);
+            }, 1000);
     });
 
     startButton.addEventListener('click', function (e) {
         activateSoundsForTouch();
         splash.style.display = 'none';
-        emitEvent('scene-started', ['#base_building']);
+        emitEvent('scene-started', ['#building-glb']);
     });
 
 
